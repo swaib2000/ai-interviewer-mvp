@@ -28,46 +28,50 @@ The system integrates **screen capture, OCR-based context extraction, LLM-driven
 ---
 
 ## 🧱 High-Level Architecture
-┌────────────────────┐
-│ Streamlit UI│
-│ (Dashboard) │
-└─────────┬──────────┘
-│
-▼
-┌────────────────────┐
-│ Orchestrator │
-│ (Control Loop) │
-└──────┬──────┬──────┘
-│ │
-▼ ▼
-Screen LLM Interviewer
-Capture (Question Gen)
-│
-▼
-OCR
+```text
+┌──────────────┐
+│  Screen UI   │  ← Streamlit dashboard
+└──────┬───────┘
+       │
+       ▼
+┌─────────────────────┐
+│  Orchestrator       │
+│  (control loop)     │
+└──────┬──────┬───────┘
+       │      │
+       ▼      ▼
+    Screen  LLM Interviewer
+    Capture  (Question Gen)
+       │
+       ▼
+     OCR
 
+```
 ---
 
 ## 📁 Project Structure
+
+```text
 ai-interviewer-mvp/
 │
 ├── app/
-│ ├── main.py
-│ ├── state.py
-│ │
-│ ├── logic/
-│ │ ├── orchestrator.py
-│ │ └── llm_interviewer.py
-│ │
-│ ├── capture/
-│ │ └── screen.py
-│ │
-│ ├── assets/
-│ │ └── (runtime-generated files, gitignored)
+│   ├── main.py                # Streamlit entry point (UI + dashboard)
+│   ├── state.py               # Central application state (single source of truth)
+│   │
+│   ├── logic/
+│   │   ├── orchestrator.py    # Control loop (session lifecycle, timing, routing)
+│   │   └── llm_interviewer.py # LLM-based question generation
+│   │
+│   ├── capture/
+│   │   └── screen.py          # Screen capture utilities (live snapshots)
+│   │
+│   └── assets/                # Runtime-generated artifacts (gitignored)
+│       └── latest_frame.png
 │
-├── requirements.txt
-├── README.md
-└── .gitignore
+├── requirements.txt           # Python dependencies
+├── README.md                  # Project documentation
+└── .gitignore                 # Git ignore rules
+```
 
 
 
@@ -162,5 +166,6 @@ export OPENAI_API_KEY="your_openai_api_key"
 PYTHONPATH=. streamlit run app/main.py
 
 // The Streamlit dashboard will open in your browser.
+
 
 
