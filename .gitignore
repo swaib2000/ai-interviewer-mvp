@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# OS
+.DS_Store
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# Assets generated at runtime
+app/assets/latest_frame.png
+app/assets/*.wav
+app/assets/*.mp3
+app/assets/*.m4a
+
+# Temp
+/tmp/
+

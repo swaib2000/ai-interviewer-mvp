@@ -1,0 +1,36 @@
+faster-whisper
+streamlit-mic-recorder
+streamlit-autorefresh
+
+
+streamlit-autorefresh==1.0.1
+
+
+# ---- Core App ----
+streamlit>=1.32.0
+python-dotenv>=1.0.1
+
+# ---- Screen capture ----
+mss>=9.0.1
+Pillow>=10.2.0
+
+# ---- Audio capture ----
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.26.0
+
+# ---- HTTP / APIs ----
+requests>=2.31.0
+httpx>=0.27.0
+
+# ---- LLM / AI APIs ----
+openai>=1.12.0
+
+# ---- OCR helpers ----
+pytesseract>=0.3.10
+
+# ---- Utils ----
+pydantic>=2.6.0
+tqdm>=4.66.2
+rich>=13.7.0
+
